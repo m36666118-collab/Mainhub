@@ -21,11 +21,11 @@ local title = ("⚡ Genesis Hub | Hello %s"):format(displayName)
 local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/p4020854-hub/Lb/refs/heads/main/X", true))()
 
 local window = library:AddWindow(title, {
-    main_color = Color3.fromRGB(185, 30, 30),
-    title_bar = {Color3.fromRGB(200, 35, 35), Color3.fromRGB(100, 10, 10)},
-    background = {Color3.fromRGB(18, 5, 5)},
+    main_color = Color3.fromRGB(0, 0, 0),
+    title_bar = {Color3.fromRGB(30, 30, 30), Color3.fromRGB(10, 10, 10)},
+    background = {Color3.fromRGB(5, 5, 5)},
     background_transparency = 0,
-    min_size = Vector2.new(600, 280),
+    min_size = Vector2.new(600, 580),
     toggle_key = Enum.KeyCode.RightShift,
     can_resize = true,
 })

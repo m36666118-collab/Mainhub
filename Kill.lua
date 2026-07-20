@@ -16,13 +16,17 @@ if not displayName or displayName == "" then
 end
 local Players = game:GetService("Players")
 local player = Players.LocalPlayer
-local title = ("Genesis Hub| Hello %s"):format(displayName)
+local title = ("⚡ Genesis Hub | Hello %s"):format(displayName)
 
 local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/p4020854-hub/Lb/refs/heads/main/X", true))()
 
 local window = library:AddWindow(title, {
-    main_color = Color3.fromRGB(0, 0, 0),
-    min_size = Vector2.new(400, 870),
+    main_color = Color3.fromRGB(185, 30, 30),
+    title_bar = {Color3.fromRGB(200, 35, 35), Color3.fromRGB(100, 10, 10)},
+    background = {Color3.fromRGB(18, 5, 5)},
+    background_transparency = 0,
+    min_size = Vector2.new(600, 280),
+    toggle_key = Enum.KeyCode.RightShift,
     can_resize = true,
 })
 
@@ -153,7 +157,7 @@ Killer:AddSwitch("Auto Whitelist Friends", function(state)
             if player ~= LocalPlayer and LocalPlayer:IsFriendsWith(player.UserId) then
                 if not table.find(_G.whitelistedPlayers, player.Name) then
                     table.insert(_G.whitelistedPlayers, player.Name)
-                    print(player.Name .. " (amigo) aÃƒÂ±adido a Whitelist")
+                    print(player.Name .. " (amigo) añadido a Whitelist")
                 end
             end
         end
@@ -162,7 +166,7 @@ Killer:AddSwitch("Auto Whitelist Friends", function(state)
             if friendWhitelistActive and player ~= LocalPlayer and LocalPlayer:IsFriendsWith(player.UserId) then
                 if not table.find(_G.whitelistedPlayers, player.Name) then
                     table.insert(_G.whitelistedPlayers, player.Name)
-                    print(player.Name .. " (amigo) aÃƒÂ±adido a Whitelist")
+                    print(player.Name .. " (amigo) añadido a Whitelist")
                 end
             end
         end)
@@ -202,7 +206,7 @@ local whitelistDropdown = Killer:AddDropdown("Add to Whitelist", function(displa
     end
 end)
 
--- BotÃƒÂ³n para remover jugador seleccionado de whitelist
+-- Botón para remover jugador seleccionado de whitelist
 Killer:AddButton("Remove Selected Whitelist", function()
     if selectedWhitelist then
         for i, v in ipairs(_G.whitelistedPlayers) do
@@ -268,7 +272,7 @@ Killer:AddSwitch("Auto Kill", function(bool)
             if rightHand and leftHand then
                 for _, target in ipairs(Players:GetPlayers()) do
                     if target ~= LocalPlayer and target.Character then
-                        -- Ã°Å¸â€Â¹ Checar si estÃƒÂ¡ en Whitelist
+                        -- Checar si está en Whitelist
                         local isWhitelisted = false
                         for _, name in ipairs(_G.whitelistedPlayers) do
                             if name:lower() == target.Name:lower() then
@@ -277,7 +281,7 @@ Killer:AddSwitch("Auto Kill", function(bool)
                             end
                         end
 
-                        -- Solo atacar si NO estÃƒÂ¡ en la Whitelist
+                        -- Solo atacar si NO está en la Whitelist
                         if not isWhitelisted then
                             local rootPart = target.Character:FindFirstChild("HumanoidRootPart")
                             local humanoid = target.Character:FindFirstChild("Humanoid")
@@ -750,7 +754,6 @@ end)
 
 
 
-
 local godModeToggle = false
 Killer:AddSwitch("God mode", function(State)
     godModeToggle = State
@@ -802,7 +805,7 @@ local followDropdown = Killer:AddDropdown("Teleport player", function(selectedDi
         if target then
             followTarget = target.Name -- Guardamos Name real para seguir
             following = true
-            print("Ã¢Å“â€¦ Started following:", target.Name)
+            print("Started following:", target.Name)
             followPlayer(target)
         end
     end
@@ -834,10 +837,10 @@ Players.PlayerRemoving:Connect(function(player)
     end
 end)
 
-Killer:AddButton("Dejar de Seguir", function()
+Killer:AddButton("Stop Following", function()
     following = false
     followTarget = nil
-    print("Ã¢â€ºâ€ Stopped following")
+    print("Stopped following")
 end)
 
 task.spawn(function()
@@ -897,7 +900,7 @@ local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
 
 local ringPart = nil
-local ringColor = Color3.fromRGB(50, 163, 255)
+local ringColor = Color3.fromRGB(255, 80, 80)
 local ringTransparency = 0.6
 _G.showDeathRing = false
 _G.deathRingRange = 20
@@ -1098,7 +1101,7 @@ local timeDropdown = Killer:AddDropdown("change time", function(selection)
         Lighting.Brightness = 2
         Lighting.Ambient = Color3.fromRGB(255, 150, 100)
         Lighting.FogEnd = 500
-    elseif selection == "Nigth" then
+    elseif selection == "Night" then
         Lighting.ClockTime = 20
         Lighting.Brightness = 1.5
         Lighting.Ambient = Color3.fromRGB(100, 100, 150)
@@ -1198,7 +1201,7 @@ local function getHands(char)
 end
 
 local function ensurePunchEquipped()
-	if not isAnyActive() then return nil end  -- ðŸ”¥ NO EQUIPAR si no hay targets
+	if not isAnyActive() then return nil end
 
 	local char = LocalPlayer.Character
 	if not char then return nil end
@@ -1212,7 +1215,7 @@ local function ensurePunchEquipped()
 	if not punch then
 		task.defer(function()
 			for i = 1, 40 do
-				if not isAnyActive() then return end -- ðŸ”¥ Detener si ya no hay targets
+				if not isAnyActive() then return end
 				local p = LocalPlayer.Backpack:FindFirstChild("Punch")
 				if p then
 					p.Parent = LocalPlayer.Character
@@ -1233,7 +1236,7 @@ local function waitForCharacter()
 	task.spawn(function()
 		repeat task.wait() until LocalPlayer:FindFirstChild("Backpack")
 
-		if isAnyActive() then  -- ðŸ”¥ SOLO EQUIPAR si hay alguien de la blacklist
+		if isAnyActive() then
 			for i = 1, 60 do
 				local punch = LocalPlayer.Backpack:FindFirstChild("Punch")
 				if punch then
@@ -1359,11 +1362,6 @@ refreshActive()
 
 --------------------------------------
 
-
-
-
-
-
 local MusicTab = window:AddTab("Music")
 
 local MP3_URL = ""
@@ -1394,7 +1392,7 @@ local function formatTime(sec)
 	return string.format("%02d:%02d", m, s)
 end
 
-local TimeLabel = MusicTab:AddLabel("â±ï¸ 00:00 / 00:00")
+local TimeLabel = MusicTab:AddLabel("⏱️ 00:00 / 00:00")
 
 local function loadMP3(url)
 	if url == "" then return end
@@ -1419,7 +1417,6 @@ local function loadMP3(url)
 	currentSound:Play()
 	isPaused = false
 
-	-- Cuando termina la canciÃ³n, pasa a la siguiente
 	currentSound.Ended:Connect(function()
 		if not currentSound.Looped and not isPaused then
 			currentIndex = currentIndex + 1
@@ -1429,13 +1426,11 @@ local function loadMP3(url)
 	end)
 end
 
--- Bucle de actualizaciÃ³n de tiempo
 task.spawn(function()
 	while task.wait(0.1) do
 		if currentSound and currentSound:IsDescendantOf(SoundService) and currentSound.IsLoaded then
-			TimeLabel.Text = "â±ï¸ " .. formatTime(currentSound.TimePosition) .. " / " .. formatTime(currentSound.TimeLength)
+			TimeLabel.Text = "⏱️ " .. formatTime(currentSound.TimePosition) .. " / " .. formatTime(currentSound.TimeLength)
 
-			-- Respaldo por si el evento Ended falla
 			if not currentSound.IsPlaying and not isPaused and currentSound.TimePosition > 0 and currentSound.TimePosition >= currentSound.TimeLength - 0.2 then
 				currentIndex = currentIndex + 1
 				if currentIndex > #Playlist then currentIndex = 1 end
@@ -1445,7 +1440,6 @@ task.spawn(function()
 	end
 end)
 
--- Controles
 MusicTab:AddTextBox(" MP3 URL", function(val)
 	MP3_URL = val
 end, {["clear"] = false})
@@ -1537,6 +1531,7 @@ MusicTab:AddButton("Clear Playlist", function()
 	savePlaylist()
 	currentIndex = 0
 end)
+
 local teleport = window:AddTab("Teleport")
 
 teleport:AddButton("Spawn", function()
@@ -1582,7 +1577,7 @@ teleport:AddButton("Frozen Island", function()
     local player = game.Players.LocalPlayer
     local character = player.Character or player.CharacterAdded:Wait()
     local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
-    humanoidRootPart.CFrame = CFrame.new(- 2600.00244, 3.67686558, - 403.884369, 0.0873617008, 1.0482899e-09, 0.99617666, 3.07204253e-08, 1, - 3.7464023e-09, - 0.99617666, 3.09302628e-08, 0.0873617008)
+    humanoidRootPart.CFrame = CFrame.new(-2600, 3.67, -403.88)
     
     game:GetService("StarterGui"):SetCore("SendNotification", {
         Title = "Teletransporte",

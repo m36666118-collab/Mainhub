@@ -18,7 +18,7 @@ local Players = game:GetService("Players")
 local player = Players.LocalPlayer
 local title = ("⚡ Genesis Hub | Hello %s"):format(displayName)
 
-local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/p4020854-hub/Lb/refs/heads/main/X", true))()
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/imhenne187/SilenceElerium/refs/heads/main/src/SilenceEleriumLibrary.luau", true))()
 
 local window = library:AddWindow(title, {
     main_color = Color3.fromRGB(0, 0, 0),

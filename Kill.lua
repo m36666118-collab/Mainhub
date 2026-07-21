@@ -1134,7 +1134,7 @@ titleLabel.TextSize = 14
 titleLabel.Font = Enum.Font.Merriweather 
 titleLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 
-local fileName = "GenesisBlacklist_"..LocalPlayer.Name..".txt"
+local fileName = "AlekingBlacklist_"..LocalPlayer.Name..".txt"
 local blacklistWords = {}
 local active = {}
 local attackDelay = 0.06

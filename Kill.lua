@@ -20,11 +20,11 @@ local title = ("🏴‍☠️ KILLER HUB | PRIVATE KILLING Hello %s"):format(dis
 local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/imhenne187/SilenceElerium/refs/heads/main/src/SilenceEleriumLibrary.luau", true))()
 
 local window = library:AddWindow(title, {
-    main_color = Color3.fromRGB(0, 0, 0),
+    main_color = Color3.fromRGB(10, 10, 10),
     title_bar = {Color3.fromRGB(30, 30, 30), Color3.fromRGB(10, 10, 10)},
     background = {Color3.fromRGB(0, 0, 0)},
     background_transparency = 1,
-    min_size = Vector2.new(600, 500),
+    min_size = Vector2.new(500, 600),
     toggle_key = Enum.KeyCode.RightShift,
     can_resize = true,
 })

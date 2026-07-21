@@ -15,12 +15,12 @@ if not displayName or displayName == "" then
 end
 local Players = game:GetService("Players")
 local player = Players.LocalPlayer
-local title = ("🏴‍☠️ KILLER HUB | PRIVATE KILLING Hello %s"):format(displayName)
+local title = ("👊  KILLER HUB | PRIVATE KILLING  Hello %s  👊"):format(displayName)
 
 local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/imhenne187/SilenceElerium/refs/heads/main/src/SilenceEleriumLibrary.luau", true))()
 
 local window = library:AddWindow(title, {
-    main_color = Color3.fromRGB(100, 100, 100),
+    main_color = Color3.fromRGB(0, 0, 0),
     title_bar = {Color3.fromRGB(30, 30, 30), Color3.fromRGB(10, 10, 10)},
     background = {Color3.fromRGB(0, 0, 0)},
     background_transparency = 0,
@@ -1691,11 +1691,49 @@ end)
 
 local Credits = window:AddTab("   EXTRA   ")
 
-Credits:AddLabel("paid version")
-Credits:AddLabel("Script Made by username:")
-Credits:AddLabel("Demon_misteriousX")
-Credits:AddLabel("I hope you like the script, for bugs or suggestions on my discord server")
-Credits:AddLabel("Discord Server:")
-Credits:AddButton("Copy Link", function()
-setclipboard("https://discord.gg/Dbp6GU3PU")
+				if hrp and hum and hum.Health > 0 then
+					pcall(function()
+						LocalPlayer.muscleEvent:FireServer("punch", "rightHand")
+						LocalPlayer.muscleEvent:FireServer("punch", "leftHand")
+					end)
+
+					pcall(function()
+						firetouchinterest(rightHand, hrp, 1)
+						firetouchinterest(leftHand, hrp, 1)
+						firetouchinterest(rightHand, hrp, 0)
+						firetouchinterest(leftHand, hrp, 0)
+					end)
+				end
+			end
+		end
+	end
+end)
+
+Players.PlayerAdded:Connect(function(plr)
+	plr:GetPropertyChangedSignal("DisplayName"):Connect(function()
+		refreshActive()
+	end)
+end)
+
+LocalPlayer.CharacterAdded:Connect(function()
+	characterLoaded = false
+	task.wait(0.2)
+
+	waitForCharacter()
+	refreshActive()
+
+	if isAnyActive() then
+		task.defer(function()
+			for i = 1, 50 do
+				if not isAnyActive() then break end
+				ensurePunchEquipped()
+				task.wait(0.15)
+			end
+		end)
+	end
+end)
+
+waitForCharacter()
+refreshActive()
+
         end)

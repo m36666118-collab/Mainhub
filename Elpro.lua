@@ -12,7 +12,7 @@ end
 
 Player.Idled:Connect(preventAFK)
 
-local library = loadstring(game:HttpGet("https://gitea.com/157fl/blabla/raw/branch/main/blabla.lua", true))()
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/UserTy12008/Ty/refs/heads/main/Lybrery", true))()
 
 local window = library:AddWindow("INFERNO HUB PAID V4 | by Johan"..display, {
     main_color = Color3.fromRGB(255, 0, 0),

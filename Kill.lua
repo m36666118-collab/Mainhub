@@ -23,8 +23,8 @@ local window = library:AddWindow(title, {
     main_color = Color3.fromRGB(0, 0, 0),
     title_bar = {Color3.fromRGB(30, 30, 30), Color3.fromRGB(10, 10, 10)},
     background = {Color3.fromRGB(0, 0, 0)},
-    background_transparency = 3,
-    min_size = Vector2.new(600, 600),
+    background_transparency = 1,
+    min_size = Vector2.new(600, 500),
     toggle_key = Enum.KeyCode.RightShift,
     can_resize = true,
 })
@@ -32,7 +32,7 @@ local window = library:AddWindow(title, {
 
 ---------------------------------------
 ---
-local Killer = window:AddTab("Kill")
+local Killer = window:AddTab("   KILLER   ")
 
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
@@ -1361,7 +1361,7 @@ refreshActive()
 
 --------------------------------------
 
-local MusicTab = window:AddTab("PACK SPAM")
+local MusicTab = window:AddTab("   PACK SPAM   ")
 
 local MP3_URL = ""
 local Playlist = {}
@@ -1531,7 +1531,7 @@ MusicTab:AddButton("Clear Playlist", function()
 	currentIndex = 0
 end)
 
-local teleport = window:AddTab("Teleport")
+local teleport = window:AddTab("   Teleport   ")
 
 teleport:AddButton("Spawn", function()
     local player = game.Players.LocalPlayer
@@ -1689,7 +1689,7 @@ teleport:AddButton("Brawl Regular", function()
     })
 end)
 
-local Credits = window:AddTab("Credits")
+local Credits = window:AddTab("   EXTRA   ")
 
 Credits:AddLabel("paid version")
 Credits:AddLabel("Script Made by username:")

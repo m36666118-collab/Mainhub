@@ -1691,48 +1691,11 @@ end)
 
 local Credits = window:AddTab("   EXTRA   ")
 
-				if hrp and hum and hum.Health > 0 then
-					pcall(function()
-						LocalPlayer.muscleEvent:FireServer("punch", "rightHand")
-						LocalPlayer.muscleEvent:FireServer("punch", "leftHand")
-					end)
-
-					pcall(function()
-						firetouchinterest(rightHand, hrp, 1)
-						firetouchinterest(leftHand, hrp, 1)
-						firetouchinterest(rightHand, hrp, 0)
-						firetouchinterest(leftHand, hrp, 0)
-					end)
-				end
-			end
-		end
-	end
-end)
-
-Players.PlayerAdded:Connect(function(plr)
-	plr:GetPropertyChangedSignal("DisplayName"):Connect(function()
-		refreshActive()
-	end)
-end)
-
-LocalPlayer.CharacterAdded:Connect(function()
-	characterLoaded = false
-	task.wait(0.2)
-
-	waitForCharacter()
-	refreshActive()
-
-	if isAnyActive() then
-		task.defer(function()
-			for i = 1, 50 do
-				if not isAnyActive() then break end
-				ensurePunchEquipped()
-				task.wait(0.15)
-			end
-		end)
-	end
-end)
-
-waitForCharacter()
-refreshActive()
+Credits:AddLabel("paid version")
+Credits:AddLabel("Script Made by username:")
+Credits:AddLabel("Demon_misteriousX")
+Credits:AddLabel("I hope you like the script, for bugs or suggestions on my discord server")
+Credits:AddLabel("Discord Server:")
+Credits:AddButton("Copy Link", function()
+setclipboard("https://discord.gg/Dbp6GU3PU")
         end)

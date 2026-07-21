@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genesis Hub V2 | Muscle Legends Script</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}body{font-family:'Segoe UI',Arial,sans-serif;background:#000;color:#fff;overflow:hidden;height:100vh}#particles{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none}.particle{position:absolute;width:2px;height:2px;background:rgba(255,255,255,0.8);border-radius:50%;pointer-events:none}.screen{position:absolute;width:100%;height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;z-index:1}.hidden{opacity:0;pointer-events:none;visibility:hidden}#screen1{background:#000}.main-title{font-size:4.5rem;font-weight:900;background:linear-gradient(90deg,#ff6600,#ff3300);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:10px;text-transform:uppercase;letter-spacing:2px;animation:titledrop 1.2s both;text-shadow:0 5px 15px rgba(255,102,0,0.3)}@keyframes titledrop{0%{transform:translateY(-100px) scale(0.8);opacity:0}100%{transform:translateY(0) scale(1);opacity:1}}.subtitle{font-size:1.5rem;color:#aaa;margin-bottom:50px;animation:subtitlefade 1.5s ease 0.3s both}@keyframes subtitlefade{0%{opacity:0;transform:translateY(20px)}100%{opacity:1;transform:translateY(0)}}.discord-profiles{display:flex;gap:40px;position:absolute;bottom:40px;animation:profilesfade 1.8s ease 0.6s both}@keyframes profilesfade{0%{opacity:0;transform:translateY(30px)}100%{opacity:1;transform:translateY(0)}}.profile{display:flex;flex-direction:column;align-items:center}.discord-icon{width:60px;height:60px;background:linear-gradient(135deg,#5865F2,#4752c4);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:10px;box-shadow:0 4px 12px rgba(88,101,242,0.4)}.discord-icon i{font-size:28px}.username{font-size:1.1rem;color:#fff;background:rgba(20,20,20,0.9);padding:6px 15px;border-radius:20px;border:1px solid #333}#screen2{background:#000}.title-section{margin-bottom:60px;animation:titleslide 0.8s ease both}@keyframes titleslide{0%{opacity:0;transform:translateY(-30px)}100%{opacity:1;transform:translateY(0)}}.title-main{font-size:3.5rem;background:linear-gradient(90deg,#ff6600,#ff3300);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:10px;text-transform:uppercase}.buttons-container{display:flex;flex-direction:column;gap:25px;margin-bottom:80px;animation:buttonsappear 1s ease 0.3s both}@keyframes buttonsappear{0%{opacity:0;transform:scale(0.9)}100%{opacity:1;transform:scale(1)}}.btn{padding:18px 45px;font-size:1.3rem;font-weight:bold;border:none;border-radius:12px;cursor:pointer;transition:all 0.2s ease;display:flex;align-items:center;justify-content:center;gap:12px;min-width:300px;text-transform:uppercase;letter-spacing:1px;margin:5px 0}.btn:hover{transform:translateY(-3px)}.btn:active{transform:translateY(0)}.btn-key{background:linear-gradient(135deg,#ff6600,#ff3300);color:#fff;box-shadow:0 4px 15px rgba(255,102,0,0.4)}.btn-tutorial{background:linear-gradient(135deg,#333,#666);color:#fff;box-shadow:0 4px 15px rgba(100,100,100,0.4)}.btn-discord{background:linear-gradient(135deg,#5865F2,#4752c4);color:#fff;box-shadow:0 4px 15px rgba(88,101,242,0.4)}.btn i{font-size:1.5rem}.footer-text{position:absolute;bottom:30px;font-size:1rem;color:#666;cursor:pointer;transition:all 0.3s ease}.footer-text:hover{color:#ff6600;transform:scale(1.05)}.key-generator{display:flex;flex-direction:column;align-items:center;max-width:700px;padding:30px;background:rgba(20,20,20,0.95);border-radius:20px;border:1px solid #333;animation:popin 0.5s ease both}@keyframes popin{0%{opacity:0;transform:scale(0.95)}100%{opacity:1;transform:scale(1)}}.key-title{font-size:3rem;background:linear-gradient(90deg,#ff6600,#ff3300);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:10px;text-transform:uppercase}.key-label{font-size:1.7rem;color:#aaa;margin-bottom:25px}.key-display{width:100%;padding:20px;margin:25px 0;background:rgba(10,10,10,0.9);border-radius:12px;border:1px solid #333;display:flex;flex-direction:column;align-items:center;gap:20px}.key-text{font-family:'Courier New',monospace;font-size:1.8rem;letter-spacing:2px;color:#ff6600;padding:12px 25px;background:rgba(30,15,0,0.8);border-radius:8px;border:1px solid #ff6600;min-width:450px;text-align:center;word-break:break-all}.key-actions{display:flex;gap:15px}.btn-copy{padding:12px 35px;font-size:1.2rem;background:linear-gradient(135deg,#ff6600,#ff3300);color:#fff;border:none;border-radius:8px;cursor:pointer;transition:all 0.2s ease;display:flex;align-items:center;gap:8px;font-weight:bold}.btn-back{padding:12px 35px;font-size:1.2rem;background:#333;color:#fff;border:none;border-radius:8px;cursor:pointer;transition:all 0.2s ease;display:flex;align-items:center;gap:8px;font-weight:bold}.btn-copy:hover,.btn-back:hover{transform:translateY(-2px)}.status-message{margin-top:15px;font-size:1.1rem;color:#aaa;min-height:25px}.loading{display:flex;flex-direction:column;align-items:center;gap:15px}.spinner{width:60px;height:60px;border:4px solid rgba(255,102,0,0.2);border-top:4px solid #ff6600;border-radius:50%;animation:spin 1s linear infinite}@keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}.loading-text{font-size:1.3rem;color:#ff6600;animation:pulse 1.5s infinite}@keyframes pulse{0%,100%{opacity:0.7}50%{opacity:1}}@media (max-width:768px){.main-title,.title-main,.key-title{font-size:2.5rem}.btn{min-width:250px;padding:15px 30px;font-size:1.1rem}.key-text{font-size:1.3rem;min-width:300px;padding:10px 15px}.discord-profiles{flex-direction:column;gap:25px}.key-generator{padding:20px;margin:0 15px}}
+
+        .linkvertise-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .modal-content {
+            background: #1a1a1a;
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            border: 2px solid #ff6600;
+            box-shadow: 0 10px 30px rgba(255,102,0,0.3);
+        }
+        
+        .modal-title {
+            color: #ff6600;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+        
+        .modal-text {
+            color: #ccc;
+            margin-bottom: 20px;
+            line-height: 1.5;
+            font-size: 1.1rem;
+        }
+        
+        .linkvertise-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff6600, #ff3300);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin: 15px 0;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .linkvertise-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255,102,0,0.4);
+        }
+        
+        .modal-note {
+            color: #888;
+            font-size: 0.9rem;
+            margin-top: 20px;
+            font-style: italic;
+        }
+        
+        .close-modal {
+            background: #333;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 15px;
+            font-size: 1rem;
+            transition: all 0.2s ease;
+        }
+        
+        .close-modal:hover {
+            background: #444;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .key-info {
+            color: #ff9900;
+            font-size: 1rem;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        
+        .key-status {
+            color: #00ff00;
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+        
+        .key-warning {
+            color: #ff9900;
+            font-size: 0.9rem;
+            margin-top: 5px;
+            font-style: italic;
+        }
+        
+        .key-expired-message {
+            color: #ff3300;
+            font-size: 1.1rem;
+            margin-top: 15px;
+            padding: 10px;
+            background: rgba(255, 51, 0, 0.1);
+            border-radius: 8px;
+            border: 1px solid #ff3300;
+        }
+        
+        .btn-generate-new {
+            padding: 12px 35px;
+            font-size: 1.2rem;
+            background: linear-gradient(135deg, #00cc66, #00994d);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: bold;
+        }
+        
+        .btn-generate-new:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 204, 102, 0.4);
+        }
+        
+        .verification-notice {
+            color: #ffcc00;
+            font-size: 0.9rem;
+            margin-top: 10px;
+            padding: 8px;
+            background: rgba(255, 204, 0, 0.1);
+            border-radius: 6px;
+            border: 1px solid #ffcc00;
+        }
+    </style>
+</head>
+<body>
+    <div id="particles"></div>
+    
+    <div id="screen1" class="screen">
+        <h1 class="main-title">GENESIS HUB V2</h1>
+        <h2 class="subtitle">Made by JesÃƒÂºs and Alejandro</h2>
+        
+        <div class="discord-profiles">
+            <div class="profile">
+                <div class="discord-icon">
+                    <i class="fab fa-discord"></i>
+                </div>
+                <span class="username">jesusms13</span>
+            </div>
+            
+            <div class="profile">
+                <div class="discord-icon">
+                    <i class="fab fa-discord"></i>
+                </div>
+                <span class="username">scriptman83</span>
+            </div>
+        </div>
+    </div>
+    
+    <div id="screen2" class="screen hidden">
+        <div class="title-section">
+            <h1 class="title-main">GENESIS HUB V2</h1>
+            <p style="color:#aaa;font-size:1.2rem;margin-top:10px;">Muscle Legends Public Script</p>
+        </div>
+        
+        <div class="buttons-container">
+            <button class="btn btn-key" id="createKeyBtn">
+                <i class="fas fa-key"></i> CREATE YOUR KEY
+            </button>
+            
+            <button class="btn btn-tutorial" id="tutorialBtn">
+                <i class="fas fa-play-circle"></i> TUTORIAL
+            </button>
+            
+            <button class="btn btn-discord" id="discordBtn">
+                <i class="fab fa-discord"></i> DISCORD SERVER
+            </button>
+        </div>
+        
+        <p class="footer-text" id="footerLink">Thank you for using Genesis Hub V2!</p>
+    </div>
+    
+    <div id="screen3" class="screen hidden">
+        <div class="key-generator">
+            <h1 class="key-title">GENESIS HUB V2</h1>
+            <h2 class="key-label" id="screenLabel">LOADING YOUR KEY</h2>
+            
+            <div class="key-display">
+                <div id="loadingKey" class="loading">
+                    <div class="spinner"></div>
+                    <p class="loading-text" id="loadingText">Checking your status...</p>
+                </div>
+                
+                <div id="keyResult" style="display:none">
+                    <div class="key-text" id="generatedKey">ABC12-XYZ34-PQR56</div>
+                    
+                    <div class="key-info" id="keyInfo">
+                        <i class="fas fa-clock"></i> Loading expiry time...
+                    </div>
+                    
+                    <div class="key-status" id="keyStatus">
+                        <i class="fas fa-sync-alt"></i> 1 KEY PER DAY Ã¢â‚¬Â¢ 24 HOURS
+                    </div>
+                    
+                    <div class="key-warning" id="keyWarning">
+                        <i class="fas fa-exclamation-triangle"></i> Key auto-deletes after 24h
+                    </div>
+                    
+                    <div class="verification-notice" id="verificationNotice" style="display:none">
+                        <i class="fas fa-shield-alt"></i> Verification required for new key
+                    </div>
+                    
+                    <div class="key-actions">
+                        <button class="btn-copy" id="copyKeyBtn">
+                            <i class="fas fa-copy"></i> COPY KEY
+                        </button>
+                        <button class="btn-generate-new" id="newKeyBtn" style="display:none">
+                            <i class="fas fa-key"></i> GET NEW KEY
+                        </button>
+                        <button class="btn-back" id="backToMenuBtn">
+                            <i class="fas fa-arrow-left"></i> BACK
+                        </button>
+                    </div>
+                </div>
+                
+                <div id="expiredMessage" style="display:none">
+                    <div class="key-expired-message">
+                        <i class="fas fa-exclamation-circle"></i> YOUR KEY HAS EXPIRED
+                    </div>
+                    <div class="verification-notice" style="margin-top: 15px;">
+                        <i class="fas fa-ad"></i> New key requires verification
+                    </div>
+                    <button class="btn-generate-new" id="getNewKeyBtn" style="margin-top: 15px;">
+                        <i class="fas fa-sync-alt"></i> GET NEW KEY (VERIFICATION REQUIRED)
+                    </button>
+                </div>
+            </div>
+            
+            <div class="status-message" id="statusMessage"></div>
+        </div>
+    </div>
+
+    <div id="linkvertiseModal" class="linkvertise-modal hidden">
+        <div class="modal-content">
+            <div class="modal-title">
+                <i class="fas fa-exclamation-triangle"></i> VERIFICATION REQUIRED
+            </div>
+            <div class="modal-text">
+                <strong>EACH KEY requires verification.</strong><br>
+                Complete the verification to generate a new key.<br>
+                Your key will be valid for <strong>24 hours</strong>.
+            </div>
+            <a href="https://link-hub.net/1457789/3pNxakfWICZQ" target="_blank" class="linkvertise-btn" id="openLinkvertiseBtn">
+                <i class="fas fa-external-link-alt"></i> START VERIFICATION
+            </a>
+            <div class="modal-note">
+                After verification, you will be redirected back automatically.
+            </div>
+            <button class="close-modal" id="closeModalBtn">
+                Cancel
+            </button>
+        </div>
+    </div>
+
+    <script>
+        const API_URL = window.location.origin;
+        const SCREEN1_DURATION = 5000;
+        const DISCORD_LINK = "https://discord.gg/vm6hEdMzHg";
+        const TUTORIAL_LINK = "https://youtu.be/5sr0jcVqdWo?si=FRpoNC0THqslZGhu";
+        const WEBSITE_URL = "https://genesishub-v2.onrender.com";
+        const LINKVERTISE_URL = "https://link-hub.net/1457789/3pNxakfWICZQ";
+        
+        let particles = [];
+        let animationId = null;
+        let countdownInterval = null;
+        let currentKeyData = null;
+        let userStatus = null;
+        let userId = null;
+        
+        function getCookieValue(name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
+            return null;
+        }
+        
+        function generateUserId() {
+            const cookieId = getCookieValue('genesis_hub_user');
+            if (cookieId) {
+                return cookieId;
+            }
+            
+            const navigatorData = JSON.stringify({
+                userAgent: navigator.userAgent,
+                language: navigator.language,
+                platform: navigator.platform,
+                hardwareConcurrency: navigator.hardwareConcurrency || 'unknown',
+                deviceMemory: navigator.deviceMemory || 'unknown',
+                screenWidth: screen.width,
+                screenHeight: screen.height,
+                timezone: new Date().getTimezoneOffset(),
+                randomSeed: Math.random().toString(36).substring(2) + 
+                           Math.random().toString(36).substring(2) +
+                           Date.now().toString(36)
+            });
+            
+            const hash = btoa(encodeURIComponent(navigatorData)).substring(0, 64);
+            
+            if (!localStorage.getItem('genesis_user_id')) {
+                localStorage.setItem('genesis_user_id', hash);
+            }
+            
+            return localStorage.getItem('genesis_user_id');
+        }
+        
+        function saveUserData(keyData, status) {
+            userId = userId || generateUserId();
+            
+            const userData = {
+                user_id: userId,
+                key: keyData?.key,
+                expires_at: keyData?.expires_at,
+                time_left: keyData?.time_left,
+                last_update: Date.now(),
+                user_status: status,
+                is_active: true
+            };
+            
+            localStorage.setItem('genesis_hub_user', JSON.stringify(userData));
+            return true;
+        }
+        
+        function getSavedUserData() {
+            try {
+                const saved = localStorage.getItem('genesis_hub_user');
+                if (!saved) return null;
+                
+                const data = JSON.parse(saved);
+                userId = data.user_id || generateUserId();
+                
+                return data;
+            } catch (error) {
+                console.error('Error reading user data:', error);
+            }
+            return null;
+        }
+        
+        function clearUserData() {
+            localStorage.removeItem('genesis_hub_user');
+        }
+        
+        async function checkUserStatus() {
+            try {
+                userId = userId || generateUserId();
+                
+                const response = await fetch(`${API_URL}/check-user-status`, {
+                    headers: {
+                        'X-User-ID': userId
+                    },
+                    credentials: 'include'
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    userStatus = data;
+                    
+                    if (data.has_active_key) {
+                        saveUserData({
+                            key: data.key,
+                            expires_at: data.expires_at,
+                            time_left: data.time_left
+                        }, data);
+                    }
+                    
+                    return data;
+                }
+            } catch (error) {
+                console.error('Error checking user status:', error);
+            }
+            return null;
+        }
+        
+        function showLoading(message = "Loading...") {
+            const loading = document.getElementById('loadingKey');
+            const resultDiv = document.getElementById('keyResult');
+            const expiredMsg = document.getElementById('expiredMessage');
+            const loadingText = document.getElementById('loadingText');
+            
+            if (loadingText) loadingText.textContent = message;
+            if (loading) loading.style.display = 'flex';
+            if (resultDiv) resultDiv.style.display = 'none';
+            if (expiredMsg) expiredMsg.style.display = 'none';
+        }
+        
+        function showKeyScreen(keyData, isExpired = false) {
+            const loading = document.getElementById('loadingKey');
+            const resultDiv = document.getElementById('keyResult');
+            const expiredMsg = document.getElementById('expiredMessage');
+            const keyElement = document.getElementById('generatedKey');
+            const keyInfo = document.getElementById('keyInfo');
+            const screenLabel = document.getElementById('screenLabel');
+            const newKeyBtn = document.getElementById('newKeyBtn');
+            const verificationNotice = document.getElementById('verificationNotice');
+            
+            if (isExpired) {
+                if (loading) loading.style.display = 'none';
+                if (resultDiv) resultDiv.style.display = 'none';
+                if (expiredMsg) expiredMsg.style.display = 'block';
+                if (screenLabel) screenLabel.textContent = "KEY EXPIRED";
+                return;
+            }
+            
+            if (keyElement) keyElement.textContent = keyData.key;
+            if (loading) loading.style.display = 'none';
+            if (resultDiv) resultDiv.style.display = 'block';
+            if (expiredMsg) expiredMsg.style.display = 'none';
+            
+            if (screenLabel) screenLabel.textContent = "YOUR ACTIVE KEY";
+            
+            if (keyData.time_left) {
+                currentKeyData = keyData;
+                saveUserData(keyData, userStatus);
+                updateKeyInfo(keyData.time_left);
+                startCountdown(keyData.time_left.total_seconds);
+            }
+            
+            if (newKeyBtn) {
+                newKeyBtn.style.display = userStatus?.has_active_key ? 'none' : 'flex';
+            }
+            
+            if (verificationNotice) {
+                verificationNotice.style.display = userStatus?.requires_linkvertise ? 'block' : 'none';
+            }
+        }
+        
+        function updateKeyInfo(timeLeft) {
+            const keyInfo = document.getElementById('keyInfo');
+            if (!keyInfo || !timeLeft) return;
+            
+            const hours = timeLeft.hours || Math.floor(timeLeft.total_seconds / 3600);
+            const minutes = timeLeft.minutes || Math.floor((timeLeft.total_seconds % 3600) / 60);
+            const seconds = timeLeft.seconds || timeLeft.total_seconds % 60;
+            
+            keyInfo.innerHTML = `<i class="fas fa-clock"></i> Expires in ${hours}h ${minutes}m ${seconds}s`;
+            keyInfo.style.color = '#ff9900';
+        }
+        
+        function startCountdown(totalSeconds) {
+            if (countdownInterval) clearInterval(countdownInterval);
+            
+            let timeLeft = totalSeconds;
+            const keyInfo = document.getElementById('keyInfo');
+            
+            countdownInterval = setInterval(() => {
+                timeLeft--;
+                
+                if (!keyInfo) {
+                    clearInterval(countdownInterval);
+                    return;
+                }
+                
+                if (timeLeft <= 0) {
+                    clearInterval(countdownInterval);
+                    keyInfo.innerHTML = `<i class="fas fa-exclamation-triangle"></i> KEY EXPIRED`;
+                    keyInfo.style.color = '#ff3300';
+                    
+                    setTimeout(() => {
+                        showKeyScreen(null, true);
+                    }, 1000);
+                    
+                    clearUserData();
+                } else {
+                    const hours = Math.floor(timeLeft / 3600);
+                    const minutes = Math.floor((timeLeft % 3600) / 60);
+                    const seconds = timeLeft % 60;
+                    
+                    keyInfo.innerHTML = `<i class="fas fa-clock"></i> Expires in ${hours}h ${minutes}m ${seconds}s`;
+                    keyInfo.style.color = '#ff9900';
+                }
+            }, 1000);
+        }
+        
+        async function generateNewKey() {
+            const status = document.getElementById('statusMessage');
+            showLoading("Generating your key...");
+            
+            if (status) {
+                status.textContent = "Creating your key...";
+                status.style.color = '#ff6600';
+            }
+            
+            try {
+                userId = userId || generateUserId();
+                
+                const response = await fetch(`${API_URL}/generate-key`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-User-ID': userId
+                    },
+                    credentials: 'include'
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    const keyData = {
+                        key: data.key,
+                        expires_at: data.expires_at,
+                        time_left: data.time_left,
+                        is_valid: true
+                    };
+                    
+                    await checkUserStatus();
+                    
+                    showKeyScreen(keyData);
+                    
+                    if (status) {
+                        status.innerHTML = `<i class="fas fa-check"></i> ${data.message}`;
+                        status.style.color = '#00ff00';
+                    }
+                    
+                    return true;
+                } else {
+                    if (data.requires_linkvertise) {
+                        showLinkvertiseModal();
+                    } else {
+                        if (status) {
+                            status.textContent = `Error: ${data.message}`;
+                            status.style.color = '#ff3300';
+                        }
+                    }
+                    return false;
+                }
+            } catch (error) {
+                console.error('Error generating key:', error);
+                if (status) {
+                    status.textContent = 'Network error. Please try again.';
+                    status.style.color = '#ff3300';
+                }
+                return false;
+            }
+        }
+        
+        function copyKey() {
+            if (!currentKeyData || !currentKeyData.key) {
+                showStatus('No key to copy', 'error');
+                return;
+            }
+            
+            navigator.clipboard.writeText(currentKeyData.key)
+                .then(() => {
+                    showStatus('Ã¢Å“â€¦ Key copied to clipboard!', 'success');
+                })
+                .catch(err => {
+                    const keyElement = document.getElementById('generatedKey');
+                    if (keyElement) {
+                        const textArea = document.createElement('textarea');
+                        textArea.value = currentKeyData.key;
+                        document.body.appendChild(textArea);
+                        textArea.select();
+                        document.execCommand('copy');
+                        document.body.removeChild(textArea);
+                        showStatus('Ã¢Å“â€¦ Key copied to clipboard!', 'success');
+                    }
+                });
+        }
+        
+        function showLinkvertiseModal() {
+            const modal = document.getElementById('linkvertiseModal');
+            if (modal) modal.classList.remove('hidden');
+        }
+        
+        function hideLinkvertiseModal() {
+            const modal = document.getElementById('linkvertiseModal');
+            if (modal) modal.classList.add('hidden');
+        }
+        
+        function showStatus(text, type) {
+            const status = document.getElementById('statusMessage');
+            if (!status) return;
+            
+            status.textContent = text;
+            
+            switch(type) {
+                case 'success':
+                    status.style.color = '#00ff00';
+                    break;
+                case 'error':
+                    status.style.color = '#ff3300';
+                    break;
+                case 'warning':
+                    status.style.color = '#ff9900';
+                    break;
+                default:
+                    status.style.color = '#ff6600';
+            }
+            
+            setTimeout(() => {
+                if (currentKeyData) {
+                    status.innerHTML = `<i class="fas fa-key"></i> Key ready for Roblox`;
+                    status.style.color = '#00ff00';
+                } else {
+                    status.textContent = '';
+                }
+            }, 3000);
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            initParticles();
+            setupEventListeners();
+            
+            userId = generateUserId();
+            
+            setTimeout(() => {
+                changeScreen(2);
+            }, SCREEN1_DURATION);
+            
+            animateParticles();
+        });
+        
+        function initParticles() {
+            const container = document.getElementById('particles');
+            const count = Math.min(30, Math.floor(window.innerWidth / 20));
+            
+            for (let i = 0; i < count; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
+                const size = Math.random() * 1.5 + 1;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                particle.style.opacity = Math.random() * 0.5 + 0.3;
+                
+                particles.push({
+                    element: particle,
+                    x: parseFloat(particle.style.left),
+                    y: parseFloat(particle.style.top),
+                    speedX: (Math.random() - 0.5) * 0.2,
+                    speedY: (Math.random() - 0.5) * 0.2
+                });
+                
+                container.appendChild(particle);
+            }
+        }
+        
+        function animateParticles() {
+            function update() {
+                particles.forEach(p => {
+                    p.x += p.speedX;
+                    p.y += p.speedY;
+                    
+                    if (p.x < 0 || p.x > 100) p.speedX *= -1;
+                    if (p.y < 0 || p.y > 100) p.speedY *= -1;
+                    
+                    p.x = Math.max(0, Math.min(100, p.x));
+                    p.y = Math.max(0, Math.min(100, p.y));
+                    
+                    p.element.style.transform = `translate(${p.x}vw, ${p.y}vh)`;
+                });
+                
+                animationId = requestAnimationFrame(update);
+            }
+            update();
+        }
+        
+        function setupEventListeners() {
+            document.getElementById('createKeyBtn').addEventListener('click', async () => {
+                changeScreen(3);
+                await handleKeyCreation();
+            });
+            
+            document.getElementById('tutorialBtn').addEventListener('click', () => {
+                window.open(TUTORIAL_LINK, '_blank');
+            });
+            
+            document.getElementById('discordBtn').addEventListener('click', () => {
+                window.open(DISCORD_LINK, '_blank');
+            });
+            
+            document.getElementById('footerLink').addEventListener('click', () => {
+                window.open(WEBSITE_URL, '_blank');
+            });
+            
+            document.getElementById('copyKeyBtn').addEventListener('click', copyKey);
+            
+            document.getElementById('newKeyBtn').addEventListener('click', async () => {
+                await handleKeyCreation();
+            });
+            
+            document.getElementById('getNewKeyBtn').addEventListener('click', async () => {
+                await handleKeyCreation();
+            });
+            
+            document.getElementById('backToMenuBtn').addEventListener('click', () => {
+                changeScreen(2);
+            });
+            
+            document.getElementById('openLinkvertiseBtn').addEventListener('click', function(e) {
+                e.preventDefault();
+                window.open(LINKVERTISE_URL, '_blank');
+                
+                const checkInterval = setInterval(async () => {
+                    try {
+                        const status = await checkUserStatus();
+                        if (status && !status.requires_linkvertise) {
+                            clearInterval(checkInterval);
+                            hideLinkvertiseModal();
+                            
+                            const success = await generateNewKey();
+                            if (!success) {
+                                showStatus('Verification completed. Click "Get New Key"', 'info');
+                            }
+                        }
+                    } catch (error) {
+                        console.error('Error:', error);
+                    }
+                }, 3000);
+            });
+            
+            document.getElementById('closeModalBtn').addEventListener('click', () => {
+                hideLinkvertiseModal();
+                changeScreen(2);
+            });
+        }
+        
+        async function handleKeyCreation() {
+            showLoading("Checking your status...");
+            
+            const status = await checkUserStatus();
+            
+            if (!status) {
+                showStatus('Error connecting to server', 'error');
+                return;
+            }
+            
+            if (status.has_active_key) {
+                const keyData = {
+                    key: status.key,
+                    expires_at: status.expires_at,
+                    time_left: status.time_left,
+                    is_valid: true
+                };
+                showKeyScreen(keyData);
+                showStatus(status.message, 'info');
+                return;
+            }
+            
+            if (status.requires_linkvertise) {
+                showLinkvertiseModal();
+                return;
+            }
+            
+            if (status.can_generate_key) {
+                await generateNewKey();
+                return;
+            }
+            
+            showStatus('Ready to generate new key', 'info');
+            document.getElementById('newKeyBtn').style.display = 'flex';
+        }
+        
+        function changeScreen(screenNumber) {
+            document.querySelectorAll('.screen').forEach(screen => {
+                screen.classList.add('hidden');
+            });
+            
+            const targetScreen = document.getElementById(`screen${screenNumber}`);
+            if (targetScreen) {
+                targetScreen.classList.remove('hidden');
+            }
+            
+            if (screenNumber === 3) {
+                handleKeyCreation();
+            }
+        }
+    </script>
+</body>
+</html>

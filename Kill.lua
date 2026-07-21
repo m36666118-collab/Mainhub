@@ -25,7 +25,7 @@ local window = library:AddWindow(title, {
     title_bar = {Color3.fromRGB(30, 30, 30), Color3.fromRGB(10, 10, 10)},
     background = {Color3.fromRGB(0, 0, 0)},
     background_transparency = 3,
-    min_size = Vector2.new(500, 500),
+    min_size = Vector2.new(600, 600),
     toggle_key = Enum.KeyCode.RightShift,
     can_resize = true,
 })
